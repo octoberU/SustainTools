@@ -67,11 +67,13 @@ namespace SustainTools
 
                         audica.desc.sustainSongRight = "song_sustain_r.moggsong";
                         audica.desc.sustainSongLeft = "song_sustain_l.moggsong";
+                        audica.desc.fxSong = "";
 
                         Console.WriteLine("Exporting audica");
                         audica.moggSong.pan = new MoggSong.MoggVol(-1f, 1f);
                         string newAudicaPath = path.Replace(".audica", "_s.audica");
                         audica.Export(newAudicaPath);
+                        
                         
                         Console.WriteLine("Adding moggsongs");
 
