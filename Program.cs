@@ -82,12 +82,12 @@ namespace SustainTools
                         {
                             using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Update))
                             {
-                                ZipArchiveEntry moggSongL = archive.CreateEntry("song_sustain_l.moggsong");
+                                ZipArchiveEntry moggSongL = archive.CreateEntry("song_sustain_l.moggsong", CompressionLevel.NoCompression);
                                 using (StreamWriter writer = new StreamWriter(moggSongL.Open()))
                                 {
                                     writer.BaseStream.Write(Properties.Resources.song_sustain_l);
                                 }
-                                ZipArchiveEntry moggSongR = archive.CreateEntry("song_sustain_r.moggsong");
+                                ZipArchiveEntry moggSongR = archive.CreateEntry("song_sustain_r.moggsong", CompressionLevel.NoCompression);
                                 using (StreamWriter writer = new StreamWriter(moggSongR.Open()))
                                 {
                                     writer.BaseStream.Write(Properties.Resources.song_sustain_r);
