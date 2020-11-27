@@ -42,7 +42,7 @@ namespace SustainTools
                         string filterString = "-ac 1 -af \"chorus = in_gain = 0.5:out_gain = 0.9:delays = ' 50':decays = '  0.4':speeds = '  0.25':depths = '  2', acrusher = samples = 10:bits = 16, flanger = delay = 0:depth = 2:regen = 0:width = 71:shape = sinusoidal:phase = 25:interp = linear, lowpass = f = 600, crystalizer = i = 10,equalizer = f = 1000:t = q:w = 1:g = 2,equalizer = f = 300:t = q:w = 2:g = -5\"";
                         
                         Console.WriteLine("Running filters");
-                        ffmpeg.StartInfo.Arguments = $"-y -i {tempSongPath.Replace(".ogg", ".mp3")} {filterString} {Path.Combine(tempPath, "song_sustain_l.ogg")}";
+                        ffmpeg.StartInfo.Arguments = $"-y -i \"{tempSongPath.Replace(".ogg", ".mp3")}\" {filterString} \"{Path.Combine(tempPath, "song_sustain_l.ogg")}\"";
                         ffmpeg.Start();
                         ffmpeg.WaitForExit();
 
@@ -54,7 +54,7 @@ namespace SustainTools
 
                         Console.WriteLine("Converting to mogg");
                         string moggPath = Path.Combine(tempPath, "song_sustain_l.mogg");
-                        ogg2mogg.StartInfo.Arguments = $"{Path.Combine(tempPath, "song_sustain_l.ogg")} {moggPath}";
+                        ogg2mogg.StartInfo.Arguments = $"\"{Path.Combine(tempPath, "song_sustain_l.ogg")}\" \"{moggPath}\"";
                         ogg2mogg.Start();
                         ogg2mogg.WaitForExit();
 
